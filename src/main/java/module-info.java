@@ -13,4 +13,6 @@ module com.example.hms {
     opens Model to javafx.fxml;
     exports Controller;
     opens Controller to javafx.fxml;
+    exports DTO;
+    opens DTO to javafx.fxml;
 }

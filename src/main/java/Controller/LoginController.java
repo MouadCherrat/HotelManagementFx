@@ -34,7 +34,7 @@ public class LoginController implements Initializable {
             st.setString(2, tpassword.getText());
             rs = st.executeQuery();
             if (rs.next()) {
-                loadEmployerView();
+                loadHomeView();
             }
             else {
             Alert alert = new Alert(Alert.AlertType.WARNING, "username ou password incorrect", ButtonType.OK);
@@ -45,10 +45,10 @@ public class LoginController implements Initializable {
         }
     }
 
-    private void loadEmployerView() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Employer.fxml"));
-        Scene employerScene = new Scene(loader.load());
+    private void loadHomeView() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Home.fxml"));
+        Scene homeScene = new Scene(loader.load());
         Stage stage = (Stage) btnconn.getScene().getWindow();
-        stage.setScene(employerScene);
+        stage.setScene(homeScene);
     }
 }

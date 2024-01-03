@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public class ConnexionDB {
     static String user = "root";
-    static String password = "root";
-    static String url = "jdbc:mysql://localhost:3306/hms";
+    static String password = "";
+    static String url = "jdbc:mysql://localhost:3306/HMS";
     static String driver = "com.mysql.jdbc.Driver";
 
     public static Connection getConnection(){

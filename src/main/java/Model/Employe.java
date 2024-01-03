@@ -1,13 +1,13 @@
 package Model;
 
-public class Employer {
+public class Employe {
     private int id;
     private String name;
     private String tele;
     private String poste;
     private double salaire;
 
-    public Employer(int id, String name, String tele, String poste, double salaire) {
+    public Employe(int id, String name, String tele, String poste, double salaire) {
         this.id = id;
         this.name = name;
         this.tele = tele;

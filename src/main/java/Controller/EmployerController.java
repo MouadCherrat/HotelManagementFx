@@ -1,15 +1,19 @@
 package Controller;
-import Model.Employer;
+import Model.Employe;
 import connectionDB.ConnexionDB;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.TableView;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,34 +28,44 @@ public class EmployerController implements Initializable {
     @FXML
     private Button btndelete;
     @FXML
+    private Button exit;
+    @FXML
     private Button btnupdate;
     @FXML
-    private TableColumn<Employer, Integer> idcol;
+    private TableColumn<Employe, Integer> idcol;
     @FXML
     private TextField name;
     @FXML
-    private TableColumn<Employer, String> namecol;
+    private TableColumn<Employe, String> namecol;
     @FXML
     private TextField poste;
     @FXML
-    private TableColumn<Employer, String> postecol;
+    private TableColumn<Employe, String> postecol;
     @FXML
     private TextField salaire;
     @FXML
-    private TableColumn<Employer, Double> salairecol;
+    private TableColumn<Employe, Double> salairecol;
     @FXML
     private AnchorPane table;
     @FXML
     private TextField tele;
     @FXML
-    private TableColumn<Employer, String> telecol;
+    private TableColumn<Employe, String> telecol;
+    @FXML
+    void toHome() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Home.fxml"));
+        Scene homeScene = new Scene(loader.load());
+        Stage stage = (Stage) exit.getScene().getWindow();
+        stage.setScene(homeScene);
+
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         table();
         employerTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
-                click((Employer) newSelection);
+                click((Employe) newSelection);
             }
         });
 
@@ -86,7 +100,7 @@ public class EmployerController implements Initializable {
                 alert.show();
                 return;
             }
-            st = con.prepareStatement("insert into employer(name,tele,poste,salaire)values (?,?,?,?)");
+            st = con.prepareStatement("insert into employe(name,tele,poste,salaire)values (?,?,?,?)");
             st.setString(1, tname);
             st.setString(2, ttele);
             st.setString(3, tposte);
@@ -111,17 +125,19 @@ public class EmployerController implements Initializable {
 
     private void table() {
         try {
-            ObservableList<Employer> employerList = FXCollections.observableArrayList();
-            st = con.prepareStatement("SELECT * FROM employer");
+            ObservableList<Employe> employeList = FXCollections.observableArrayList();
+            st = con.prepareStatement("SELECT * FROM employe");
             rs = st.executeQuery();
+
             while (rs.next()) {
+
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
                 String tele = rs.getString("tele");
                 String poste = rs.getString("poste");
                 double salaire = rs.getDouble("salaire");
-                Employer employer = new Employer(id, name, tele, poste, salaire);
-                employerList.add(employer);
+                Employe employe = new Employe(id, name, tele, poste, salaire);
+                employeList.add(employe);
             }
             idcol.setCellValueFactory(new PropertyValueFactory<>("id"));
             namecol.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -129,7 +145,7 @@ public class EmployerController implements Initializable {
             postecol.setCellValueFactory(new PropertyValueFactory<>("poste"));
             salairecol.setCellValueFactory(new PropertyValueFactory<>("salaire"));
 
-            employerTable.setItems(employerList);
+            employerTable.setItems(employeList);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -137,8 +153,8 @@ public class EmployerController implements Initializable {
 
     @FXML
     void delete() {
-        Employer selectedEmployer = (Employer) employerTable.getSelectionModel().getSelectedItem();
-        if (selectedEmployer == null) {
+        Employe selectedEmploye = (Employe) employerTable.getSelectionModel().getSelectedItem();
+        if (selectedEmploye == null) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Veuillez selectionner un employe a supprimer", ButtonType.OK);
             alert.setTitle("ATTENTION");
             alert.setHeaderText("Selectionner un employe");
@@ -146,8 +162,8 @@ public class EmployerController implements Initializable {
             return;
         }
         try {
-            int employerId = selectedEmployer.getId();
-            st = con.prepareStatement("DELETE FROM employer WHERE id = ?");
+            int employerId = selectedEmploye.getId();
+            st = con.prepareStatement("DELETE FROM employe WHERE id = ?");
             st.setInt(1, employerId);
             st.executeUpdate();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -163,7 +179,7 @@ public class EmployerController implements Initializable {
 
     @FXML
     void update(){
-        Employer selectedEmployer = (Employer) employerTable.getSelectionModel().getSelectedItem();
+        Employe selectedEmploye = (Employe) employerTable.getSelectionModel().getSelectedItem();
         String tname, ttele, tposte;
         tname = name.getText();
         ttele = tele.getText();
@@ -184,18 +200,22 @@ public class EmployerController implements Initializable {
                 alert.show();
                 return;
             }
-            PreparedStatement st = con.prepareStatement("UPDATE employer SET name=?, tele=?, poste=?, salaire=? WHERE id=?");
+            PreparedStatement st = con.prepareStatement("UPDATE employe SET name=?, tele=?, poste=?, salaire=? WHERE id=?");
             st.setString(1, tname);
             st.setString(2, ttele);
             st.setString(3, tposte);
             st.setDouble(4, tsalaire);
-            st.setInt(5, selectedEmployer.getId());
+            st.setInt(5, selectedEmploye.getId());
             st.executeUpdate();
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Mettre a jour employer", ButtonType.OK);
             alert.setTitle("Mise a jour");
             alert.setHeaderText("Employer mis a jours avec succes");
             alert.show();
             table();
+            name.clear();
+            tele.clear();
+            poste.clear();
+            salaire.clear();
 
 
         } catch (NumberFormatException | SQLException e) {
@@ -206,11 +226,11 @@ public class EmployerController implements Initializable {
             alert.show();        }
     }
 
-    private void click(Employer selectedEmployer) {
-        name.setText(selectedEmployer.getName());
-        tele.setText(selectedEmployer.getTele());
-        poste.setText(selectedEmployer.getPoste());
-        salaire.setText(String.valueOf(selectedEmployer.getSalaire()));
+    private void click(Employe selectedEmploye) {
+        name.setText(selectedEmploye.getName());
+        tele.setText(selectedEmploye.getTele());
+        poste.setText(selectedEmploye.getPoste());
+        salaire.setText(String.valueOf(selectedEmploye.getSalaire()));
     }
 }
 
