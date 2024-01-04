@@ -8,25 +8,28 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="919.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReservationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReservationController">
     <children>
-        <Label alignment="CENTER" layoutX="143.0" layoutY="33.0" prefHeight="55.0" prefWidth="528.0" text="Booking management" textAlignment="CENTER">
+        <Label alignment="CENTER" layoutX="263.0" layoutY="29.0" prefHeight="55.0" prefWidth="528.0" text="BOOKING LIST" textAlignment="CENTER">
             <font>
-                <Font name="Bell MT" size="32.0" />
+                <Font name="Arial Black" size="32.0" />
             </font>
         </Label>
-        <TableView fx:id="tableReservation" layoutX="11.0" layoutY="119.0" prefHeight="336.0" prefWidth="902.0">
+        <TableView fx:id="tableReservation" layoutX="11.0" layoutY="119.0" prefHeight="355.0" prefWidth="965.0">
             <columns>
                 <TableColumn fx:id="tId" prefWidth="102.88886642456055" text="ID" />
-                <TableColumn fx:id="tuserName" prefWidth="129.5" text="USER_FIRSTNAME" />
-                <TableColumn fx:id="tlastName" prefWidth="130.5" text="USER_LASTNAME" />
-                <TableColumn fx:id="troomNumber" prefWidth="127.0" text="ROOM_NUMBER" />
-                <TableColumn fx:id="tcheckIn" minWidth="0.0" prefWidth="155.5" text="CHECK_IN" />
-                <TableColumn fx:id="tcheckOut" prefWidth="123.5" text="CHECK_OUT" />
-            <TableColumn fx:id="tamount" prefWidth="130.0" text="AMOUNT" />
+                <TableColumn fx:id="tuserName" prefWidth="143.9999771118164" text="USER_FIRSTNAME" />
+                <TableColumn fx:id="tlastName" prefWidth="133.3333740234375" text="USER_LASTNAME" />
+                <TableColumn fx:id="troomNumber" prefWidth="121.33328247070312" text="ROOM_NUMBER" />
+                <TableColumn fx:id="tcheckIn" minWidth="0.0" prefWidth="159.99993896484375" text="CHECK_IN" />
+                <TableColumn fx:id="tcheckOut" prefWidth="148.66668701171875" text="CHECK_OUT" />
+            <TableColumn fx:id="tamount" prefWidth="152.00002034505212" text="AMOUNT" />
             </columns>
         </TableView>
-      <Button fx:id="exit" layoutX="721.0" layoutY="491.0" mnemonicParsing="false" onAction="#toHome" style="-fx-background-color: red;" text="EXIT" textFill="WHITE" />
+      <Button fx:id="exit" layoutX="820.0" layoutY="516.0" mnemonicParsing="false" onAction="#toHome" prefHeight="37.0" prefWidth="123.0" style="-fx-background-color: red;" text="EXIT" textFill="WHITE">
+         <font>
+            <Font name="Bell MT" size="16.0" />
+         </font></Button>
     </children>
     <rotationAxis>
         <Point3D />

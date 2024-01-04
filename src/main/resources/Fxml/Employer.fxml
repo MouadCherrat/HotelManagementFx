@@ -9,37 +9,70 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="table" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EmployerController">
+<AnchorPane fx:id="table" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EmployerController">
    <children>
-      <Label layoutX="203.0" layoutY="34.0" prefHeight="39.0" prefWidth="367.0" text="EMPLOYES MANAGEMENT">
+      <Label layoutX="392.0" layoutY="28.0" prefHeight="39.0" prefWidth="367.0" text="EMPLOYES MANAGEMENT">
          <font>
             <Font name="Arial Black" size="25.0" />
          </font>
       </Label>
-      <Pane layoutX="21.0" layoutY="101.0" prefHeight="237.0" prefWidth="195.0" style="-fx-background-color: black;">
+      <Pane layoutX="18.0" layoutY="101.0" prefHeight="379.0" prefWidth="233.0" style="-fx-background-color: WHITE;">
          <children>
-            <Label layoutX="14.0" layoutY="20.0" text="Nom et prenom" textFill="WHITE" />
-            <Label layoutX="13.0" layoutY="71.0" text="Numéro de téléphone" textFill="WHITE" />
-            <Label layoutX="14.0" layoutY="119.0" text="Poste " textFill="WHITE" />
-            <Label layoutX="13.0" layoutY="161.0" text="Salaire" textFill="WHITE" />
-            <TextField fx:id="name" layoutX="14.0" layoutY="37.0" />
-            <TextField fx:id="tele" layoutX="14.0" layoutY="88.0" />
-            <TextField fx:id="poste" layoutX="14.0" layoutY="136.0" />
-            <TextField fx:id="salaire" layoutX="14.0" layoutY="189.0" />
+            <Label layoutX="14.0" layoutY="39.0" text="NAME">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label layoutX="14.0" layoutY="122.0" text="PHONE NUMBER">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label layoutX="15.0" layoutY="200.0" text="Poste ">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label layoutX="14.0" layoutY="280.0" text="Salaire">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <TextField fx:id="name" layoutX="14.0" layoutY="74.0" />
+            <TextField fx:id="tele" layoutX="14.0" layoutY="158.0" />
+            <TextField fx:id="poste" layoutX="14.0" layoutY="236.0" />
+            <TextField fx:id="salaire" layoutX="14.0" layoutY="317.0" />
          </children>
       </Pane>
-      <TableView fx:id="employerTable" layoutX="224.0" layoutY="101.0" prefHeight="237.0" prefWidth="420.0">
+      <TableView fx:id="employerTable" layoutX="270.0" layoutY="101.0" prefHeight="379.0" prefWidth="644.0">
         <columns>
-          <TableColumn fx:id="idcol" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="namecol" prefWidth="98.66668701171875" text="Nom et prenom" />
-            <TableColumn fx:id="telecol" prefWidth="96.66668701171875" text="Telephone" />
-            <TableColumn fx:id="postecol" prefWidth="73.33328247070312" text="Poste" />
-            <TableColumn fx:id="salairecol" prefWidth="74.66668701171875" text="Salaire" />
+          <TableColumn fx:id="idcol" prefWidth="95.33334350585938" text="ID" />
+          <TableColumn fx:id="namecol" prefWidth="148.66665649414062" text="Nom et prenom" />
+            <TableColumn fx:id="telecol" prefWidth="112.6666259765625" text="Telephone" />
+            <TableColumn fx:id="postecol" prefWidth="134.00006103515625" text="Poste" />
+            <TableColumn fx:id="salairecol" prefWidth="151.33331298828125" text="Salaire" />
         </columns>
       </TableView>
-      <Button fx:id="btnadd" layoutX="14.0" layoutY="353.0" mnemonicParsing="false" onAction="#add" style="-fx-background-color: green;" text="AJOUTER" textFill="WHITE" />
-      <Button fx:id="btnupdate" layoutX="119.0" layoutY="353.0" mnemonicParsing="false" onAction="#update" style="-fx-background-color: blue;" text="MODIFIER" textFill="WHITE" />
-      <Button fx:id="btndelete" layoutX="216.0" layoutY="353.0" mnemonicParsing="false" onAction="#delete" style="-fx-background-color: red;" text="SUPPRIMER" textFill="WHITE" />
-      <Button fx:id="exit" layoutX="532.0" layoutY="366.0" mnemonicParsing="false" onAction="#toHome" style="-fx-background-color: red;" text="EXIT" textFill="WHITE" />
+      <Button fx:id="btnadd" layoutX="30.0" layoutY="485.0" mnemonicParsing="false" onAction="#add" prefHeight="39.0" prefWidth="127.0" style="-fx-background-color: #E8E8F9;" text="ADD">
+         <font>
+            <Font name="Bell MT" size="16.0" />
+         </font></Button>
+      <Button fx:id="btnupdate" layoutX="187.0" layoutY="518.0" mnemonicParsing="false" onAction="#update" prefHeight="39.0" prefWidth="127.0" style="-fx-background-color: #E8E8F9;" text="UPDATE">
+         <font>
+            <Font name="Bell MT" size="16.0" />
+         </font></Button>
+      <Button fx:id="btndelete" layoutX="30.0" layoutY="542.0" mnemonicParsing="false" onAction="#delete" prefHeight="39.0" prefWidth="127.0" style="-fx-background-color: #E8E8F9;" text="DELETE">
+         <font>
+            <Font name="Bell MT" size="16.0" />
+         </font></Button>
+      <Button fx:id="exit" layoutX="812.0" layoutY="501.0" mnemonicParsing="false" onAction="#toHome" prefHeight="47.0" prefWidth="127.0" style="-fx-background-color: red;" text="EXIT" textFill="WHITE">
+         <font>
+            <Font name="Bell MT" size="16.0" />
+         </font></Button>
+      <AnchorPane layoutY="1.0" prefHeight="103.0" prefWidth="233.0" style="-fx-background-color: #E8E8F9;">
+         <children>
+            <Label layoutX="51.0" layoutY="32.0" prefHeight="39.0" prefWidth="175.0" text="ADD EMPLOYE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

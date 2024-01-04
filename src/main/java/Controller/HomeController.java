@@ -100,7 +100,11 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    void toClient() {
+    void toClient() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Client.fxml"));
+        Scene clientScene = new Scene(loader.load());
+        Stage stage = (Stage) logout.getScene().getWindow();
+        stage.setScene(clientScene);
 
     }
 

@@ -4,14 +4,13 @@
 <?import javafx.geometry.Point3D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="844.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeController">
    <children>
       <VBox prefHeight="544.0" prefWidth="225.0" style="-fx-background-color: #E8E8F9;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -21,13 +20,6 @@
                </font>
             </Label>
             <Button fx:id="homebtn" alignment="TOP_LEFT" graphicTextGap="25.0" mnemonicParsing="false" onAction="#toHome" prefHeight="58.0" prefWidth="225.0" style="-fx-background-color: #E8E8F9;" text="HOME">
-               <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../../Downloads/imag/home.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
                <font>
                   <Font name="Arial" size="16.0" />
                </font>
@@ -39,13 +31,6 @@
                </padding>
             </Button>
             <Button fx:id="employebtn" alignment="TOP_LEFT" graphicTextGap="25.0" mnemonicParsing="false" onAction="#toEmploye" prefHeight="64.0" prefWidth="225.0" style="-fx-background-color: #E8E8F9;" text="EMPLOYE" textAlignment="JUSTIFY">
-               <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../../Downloads/imag/employee.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
                <font>
                   <Font size="16.0" />
                </font>
@@ -57,13 +42,6 @@
                </padding>
             </Button>
             <Button fx:id="clientbtn" alignment="TOP_LEFT" graphicTextGap="25.0" mnemonicParsing="false" onAction="#toClient" prefHeight="59.0" prefWidth="225.0" style="-fx-background-color: #E8E8F9;" text="CLIENT">
-               <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../../Downloads/imag/client.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
                <font>
                   <Font size="16.0" />
                </font>
@@ -75,13 +53,6 @@
                </padding>
             </Button>
             <Button fx:id="reservationbtn" alignment="TOP_LEFT" graphicTextGap="25.0" mnemonicParsing="false" onAction="#toReservation" prefHeight="64.0" prefWidth="225.0" style="-fx-background-color: #E8E8F9;" text="RESERVATIONS">
-               <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../../Downloads/imag/reservation.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic>
                <font>
                   <Font size="16.0" />
                </font>
@@ -93,13 +64,6 @@
                </padding>
             </Button>
             <Button fx:id="rooms" alignment="TOP_LEFT" graphicTextGap="25.0" mnemonicParsing="false" onAction="#toRoom" prefHeight="46.0" prefWidth="225.0" style="-fx-background-color: #E8E8F9;" text="ROOMS" textAlignment="CENTER">
-               <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../../Downloads/imag/room.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
                <font>
                   <Font size="16.0" />
                </font>
@@ -112,12 +76,12 @@
             </Button>
          </children>
       </VBox>
-      <Label alignment="CENTER" layoutX="267.0" layoutY="57.0" prefHeight="64.0" prefWidth="546.0" text="ADMIN DASHBORD" textAlignment="CENTER">
+      <Label alignment="CENTER" layoutX="313.0" layoutY="54.0" prefHeight="64.0" prefWidth="546.0" text="ADMIN DASHBORD" textAlignment="CENTER">
          <font>
             <Font name="Bell MT" size="32.0" />
          </font>
       </Label>
-      <HBox alignment="CENTER_LEFT" layoutX="239.0" layoutY="251.0" prefHeight="58.0" prefWidth="603.0" style="-fx-background-color: #fff;" AnchorPane.leftAnchor="239.0" AnchorPane.rightAnchor="2.0">
+      <HBox alignment="CENTER_LEFT" layoutX="232.0" layoutY="251.0" prefHeight="58.0" prefWidth="679.0" style="-fx-background-color: #fff;" AnchorPane.leftAnchor="232.0" AnchorPane.rightAnchor="89.0">
          <children>
             <Label prefHeight="17.0" prefWidth="166.0" text="TOTAL EMPLOYEES">
                <HBox.margin>
@@ -129,7 +93,7 @@
                   <Insets left="80.0" />
                </HBox.margin>
             </Label>
-            <Label contentDisplay="CENTER" prefHeight="17.0" prefWidth="193.0" text="TOTAL RESERVATIONS">
+            <Label contentDisplay="CENTER" prefHeight="17.0" prefWidth="171.0" text="TOTAL RESERVATIONS">
                <HBox.margin>
                   <Insets left="90.0" />
                </HBox.margin>
@@ -148,7 +112,7 @@
             </Label>
             <Label fx:id="clientcount" text="750" textFill="#1886d0">
                <padding>
-                  <Insets left="160.0" />
+                  <Insets left="170.0" />
                </padding>
                <font>
                   <Font name="Arial Italic" size="22.0" />
@@ -156,7 +120,7 @@
             </Label>
             <Label fx:id="reservationcount" text="700" textFill="#4698db">
                <padding>
-                  <Insets left="150.0" />
+                  <Insets left="220.0" />
                </padding>
                <font>
                   <Font name="Arial Italic" size="22.0" />
@@ -164,11 +128,12 @@
             </Label>
          </children>
       </HBox>
-      <Button fx:id="logout" layoutX="674.0" layoutY="461.0" mnemonicParsing="false" onAction="#exit" prefHeight="39.0" prefWidth="101.0" style="-fx-background-color: #E50000;" text="LOG OUT" textFill="WHITE">
+      <Button fx:id="logout" layoutX="822.0" layoutY="526.0" mnemonicParsing="false" onAction="#exit" prefHeight="39.0" prefWidth="134.0" style="-fx-background-color: #E50000;" text="LOG OUT" textFill="WHITE">
          <font>
             <Font name="Bell MT" size="18.0" />
          </font>
       </Button>
+      <Line endX="709.3333740234375" layoutX="326.0" layoutY="140.0" startX="-100.0" />
    </children>
    <rotationAxis>
       <Point3D />
