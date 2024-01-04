@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="table" prefHeight="414.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EmployerController">
+<AnchorPane fx:id="table" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EmployerController">
    <children>
-      <Label layoutX="165.0" layoutY="28.0" prefHeight="39.0" prefWidth="367.0" text="Gestion des employes">
+      <Label layoutX="203.0" layoutY="34.0" prefHeight="39.0" prefWidth="367.0" text="EMPLOYES MANAGEMENT">
          <font>
             <Font name="Arial Black" size="25.0" />
          </font>
